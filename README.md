@@ -2,6 +2,35 @@
 
 A full-featured event booking application built with MongoDB, Express.js, React, and Node.js (MERN). Users can browse events, make bookings, process secure payments, and manage their bookings. Admins can manage events and view analytics.
 
+## 📦 Version Details
+
+**Project Version:** v1.0.0  
+**Last Updated:** March 2026
+
+### Backend Dependencies
+| Package | Version | Purpose |
+|---------|---------|---------|
+| Node.js | v16+ | Runtime environment |
+| Express.js | v4.18.2 | Web framework |
+| MongoDB/Mongoose | v7.0.0 | Database & ODM |
+| Stripe | v12.0.0 | Payment processing |
+| JWT | v9.0.0 | Authentication |
+| Bcryptjs | v2.4.3 | Password hashing |
+| Cors | v2.8.5 | Cross-origin requests |
+| Nodemailer | v6.9.1 | Email notifications |
+| Express-validator | v7.0.0 | Input validation |
+| Dotenv | v16.0.3 | Environment variables |
+
+### Frontend Dependencies
+| Package | Version | Purpose |
+|---------|---------|---------|
+| React | v18.2.0 | UI framework |
+| React Router DOM | v6.10.0 | Routing |
+| Axios | v1.3.0 | HTTP client |
+| Stripe React | v2.0.0 | Payment UI |
+| QRCode React | v4.2.0 | QR code generation |
+| React Calendar | v4.0.0 | Calendar component |
+
 ## 🎯 Features
 
 ### User Features
@@ -371,12 +400,99 @@ REACT_APP_API_URL=http://localhost:5000/api
 REACT_APP_STRIPE_PUBLIC_KEY=your_stripe_public_key
 ```
 
+## 🚀 Production Deployment (Render)
+
+This project is ready for production deployment on Render with MongoDB Atlas:
+
+### Prerequisites for Deployment:
+- Render.com account (free tier available)
+- MongoDB Atlas account (free tier available)
+- GitHub repository with code pushed
+- Stripe account with live keys
+
+### Deployment Steps:
+
+1. **Push code to GitHub** (already done ✓)
+   ```bash
+   git add .
+   git commit -m "Ready for production deployment"
+   git push origin main
+   ```
+
+2. **Deploy Backend:**
+   - Go to [render.com](https://render.com)
+   - Create new Web Service
+   - Build: `cd backend && npm install`
+   - Start: `cd backend && npm start`
+   - Add environment variables (see RENDER_DEPLOYMENT.md)
+
+3. **Deploy Frontend:**
+   - Create another Web Service
+   - Build: `cd frontend && npm install && npm run build`
+   - Start: `cd frontend && npm start`
+   - Set REACT_APP_API_URL to backend URL
+
+4. **Configure CORS:**
+   - Backend CORS_ORIGIN = Frontend URL
+   - Frontend REACT_APP_API_URL = Backend URL
+
+### Live URLs:
+- **Backend:** https://event-booking-backend-s9g8.onrender.com
+- **Frontend:** https://event-booking-frontend-xtid.onrender.com
+
+For detailed deployment guide, see [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md)
+
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a new branch
 3. Make your changes
 4. Submit a pull request
+
+## 🐛 Troubleshooting
+
+### Common Issues & Solutions
+
+**Backend connection error:**
+- Verify MongoDB connection string in .env
+- Ensure MongoDB service is running
+- Check if port 5000 is available
+
+**Frontend cannot reach backend:**
+- Verify REACT_APP_API_URL in frontend .env
+- Check backend CORS_ORIGIN setting
+- Ensure both services are running
+
+**Payment fails:**
+- Verify Stripe keys in backend .env
+- Use Stripe test keys for development
+- Check if amount is in correct currency (INR)
+
+**Authentication issues:**
+- Check JWT_SECRET is set correctly
+- Verify token is stored in localStorage
+- Ensure Authorization header is sent in requests
+
+**Port already in use:**
+- Change PORT in .env
+- Or kill process using the port
+
+For more issues, check [DEBUGGING_GUIDE.md](./DEBUGGING_GUIDE.md)
+
+## 📄 License
+
+This project is licensed under the ISC License - see LICENSE file for details
+
+## 👥 Support
+
+For issues and questions:
+- Check the [DEBUGGING_GUIDE.md](./DEBUGGING_GUIDE.md)
+- Review [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
+- Check [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md)
+
+---
+
+**Made with ❤️ for Event Booking**
 
 ## 📝 License
 
